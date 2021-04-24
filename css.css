@@ -309,12 +309,3 @@ h1{
     padding-bottom: 1%;
     display: none;
 }
-
-/*--------------------------------Img de compartilhamento-------------------------------------------*/
-
-.pe-treasury-edit__preview-image{
-    width: 662px;
-    height: 386px;
-    display: none;
-}
-

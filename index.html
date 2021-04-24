@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <!-- Imagem para compartilhamento da url -->
+    <meta property="og:image" content="https://raw.githubusercontent.com/vitoriasilva98/Projeto-Doe-Sangue/main/img/capa.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="662px">
+    <meta property="og:image:height" content="386px">
     <title>Doe Sague - Salve Vidas</title>
 </head>
 
@@ -25,7 +30,8 @@
         <div class="input_corpo">
             <!--O objetivo do programa é saber se você pode doar sangue e para qual tipo você pode doar e receber-->
             <!--Campo nome-->
-            Qual é o seu nome? <input id="valor_Nome" placeholder="Qual é o seu nome?" class="inputs" onchange="trava_e_destrava()" autofocus><br><br>
+            Qual é o seu nome? <input id="valor_Nome" placeholder="Qual é o seu nome?" class="inputs"
+                onchange="trava_e_destrava()" autofocus><br><br>
             <!--Campo idade é uma condição-->
             Qual é a sua idade? <input id="valor_Idade" placeholder="Qual é sua idade?" class="inputs"
                 onchange="trava_e_destrava()" disabled><br><br>
@@ -35,13 +41,13 @@
             <div class="respo">No caso de menor de idade está acompanhado de um responsável?
                 <label for="responsavel">Escolha uma opção:</label>
 
-                <select id="responsavel_select" class="style_select_respo" onchange="trava_e_destrava()" disabled >
+                <select id="responsavel_select" class="style_select_respo" onchange="trava_e_destrava()" disabled>
                     <option value="0" selected>***</option>
                     <option value="Sim">Sim</option>
                     <option value="N">Não</option>
                 </select>
             </div>
-        </div> 
+        </div>
 
         <div class="alinhado">
             <div id="div_sexo">
@@ -129,7 +135,7 @@
                 <div id="div_tipo_pais">
                     <!-- Aqui posso colocar o display none-->
                     Qual é o tipo sanguíneo do seus pais?
-                    <select id="tipo_pais" class="style_select"disabled>
+                    <select id="tipo_pais" class="style_select" disabled>
                         <option value="null">Selecione</option>
                         <option value="A e A">Pais A e A</option>
                         <option value="A e B">Pais A e B</option>
@@ -146,7 +152,8 @@
             </div>
         </div>
 
-        <a href="#simulacao"><button onclick="analiseClinica();tipoPais()" class="botao">Análise <br>Sanguínea</button></a><br><br>
+        <a href="#simulacao"><button onclick="analiseClinica();tipoPais()" class="botao">Análise
+                <br>Sanguínea</button></a><br><br>
     </div>
     <!--  -->
     <div class="fundo_branco" id="fundo_branco">
@@ -254,7 +261,8 @@
                     <div class="_padrao"><span class="info_padrao">Se alimentou antes da doação: </span>Sim</div>
                     <div class="_padrao"><span class="info_padrao">Sabe seu tipo sanguíneo? </span>Não</div>
                     <div class="_padrao"><span class="n_pode">Sabe tipo sanguíneo dos pais? </span>Sim</div>
-                    <div class="_padrao"><span class="n_pode">Tipo Sanguíneo dos pais: </span><b id="tipo_sanguineo_pais"></b>
+                    <div class="_padrao"><span class="n_pode">Tipo Sanguíneo dos pais: </span><b
+                            id="tipo_sanguineo_pais"></b>
                     </div>
                     <div class="n_pode">Você pode doar sangue!</div>
                     <div id="pais"></div>
@@ -282,7 +290,6 @@
                     <b>Você está fazendo uma boa ação!</b>
                 </div>
             </div>
-            <div class="pe-treasury-edit__preview-image"><img src="img/capa.png"></div>
         </div>
     </div>
 
