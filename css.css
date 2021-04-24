@@ -315,5 +315,6 @@ h1{
 .img_compartilhamento{
     width: 662px;
     height: 386px;
+    display: none;
 }
 
