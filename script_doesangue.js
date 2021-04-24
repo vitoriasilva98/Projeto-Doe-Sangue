@@ -1,15 +1,18 @@
 // Alert de Boas Vindas
 alert(`Olá! Seja bem-vindo ao Projeto Doe Sangue | Salve Vidas é um questionário onde o objetivo é saber se você pode doar sangue, 
-para quem e de qual tipo sanguíneo você pode receber. <br>Fiz esse programa com tudo que aprendi na faculdade 
-até agora e com algumas pesquisas. <br>Linguagens utilizadas: HTML, CSS, JavaScript e Chart.JS. <br>
-Está versão ainda não está responsiva, estou começando a aprender. <br>Quem puder me dar um feedback eu agradeço!`)
+para quem e de qual tipo sanguíneo você pode receber. 
+Fiz esse programa com tudo que aprendi na faculdade 
+até agora e com algumas pesquisas. 
+Linguagens utilizadas: HTML, CSS, JavaScript e Chart.JS. 
+Está versão ainda não está responsiva, estou começando a aprender. 
+Quem puder me dar um feedback eu agradeço!`)
 //Destrava os campos.
 function trava_e_destrava() {
     var idade = Number(valor_Idade.value);
 
-    if(valor_Nome.value == ""){
+    if (valor_Nome.value == "") {
         alert("Informe seu nome")
-    } else if(valor_Nome.value.length >= 3){
+    } else if (valor_Nome.value.length >= 3) {
         valor_Idade.disabled = false;
     }
 
@@ -20,43 +23,43 @@ function trava_e_destrava() {
         responsavel_select.disabled = false;
     }
 
-    if(idade >= 18){
+    if (idade >= 18) {
         sexo.disabled = false;
     }
 
-    if (responsavel_select.value == "Sim"){
+    if (responsavel_select.value == "Sim") {
         sexo.disabled = false;
     }
 
-    if(sexo.value == "Feminino"){
+    if (sexo.value == "Feminino") {
         gravida.disabled = false;
     }
 
-    if(gravida.value == "S"){
+    if (gravida.value == "S") {
         tipo_parto.disabled = false;
     }
 
-    if(sexo.value == "Masculino" || gravida.value == "N"){
+    if (sexo.value == "Masculino" || gravida.value == "N") {
         peso.disabled = false;
     }
 
-    if(peso.value == "mais"){
+    if (peso.value == "mais") {
         alimento.disabled = false;
     }
 
-    if(alimento.value == "S"){
+    if (alimento.value == "S") {
         seu_tipo.disabled = false;
     }
 
-    if(seu_tipo.value == "S"){
+    if (seu_tipo.value == "S") {
         tipo.disabled = false;
     }
 
-    if(seu_tipo.value == "N"){
+    if (seu_tipo.value == "N") {
         seus_pais.disabled = false;
     }
 
-    if(seus_pais.value == "S"){
+    if (seus_pais.value == "S") {
         tipo_pais.disabled = false;
     }
 }
