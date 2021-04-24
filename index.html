@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="img/icon.png" />
+    <!-- link para o código ChartsJS - Versão 3.1.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="script_doesangue.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
+    <title>Doe Sague - Salve Vidas</title>
+</head>
+
+<body>
+    <div class="container_logo">
+        <img src="img/Logo.png" class="logo">
+        <p class="intro">Você pode doar sangue? Para quem? E qual tipo sanguíneo você pode receber?</p>
+    </div>
+
+    <div class="container_corpo">
+        <div class="input_corpo">
+            <!--O objetivo do programa é saber se você pode doar sangue e para qual tipo você pode doar e receber-->
+            <!--Campo nome-->
+            Qual é o seu nome? <input id="valor_Nome" placeholder="Qual é o seu nome?" class="inputs" onchange="trava_e_destrava()" autofocus><br><br>
+            <!--Campo idade é uma condição-->
+            Qual é a sua idade? <input id="valor_Idade" placeholder="Qual é sua idade?" class="inputs"
+                onchange="trava_e_destrava()" disabled><br><br>
+        </div>
+
+        <div class="select_responsavel">
+            <div class="respo">No caso de menor de idade está acompanhado de um responsável?
+                <label for="responsavel">Escolha uma opção:</label>
+
+                <select id="responsavel_select" class="style_select_respo" onchange="trava_e_destrava()" disabled >
+                    <option value="0" selected>***</option>
+                    <option value="Sim">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+        </div> 
+
+        <div class="alinhado">
+            <div id="div_sexo">
+                Qual é o seu sexo?
+                <select id="sexo" class="style_select" onchange="trava_e_destrava()" disabled>
+                    <option value="null">Selecione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+
+                <div id="div_gravida">
+                    <!-- Aqui posso colocar o display none-->
+                    Você está grávida?
+                    <select id="gravida" class="style_select" onchange="trava_e_destrava()" disabled>
+                        <option value="null">Selecione</option>
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select><br>
+
+                    Qual o tipo do parto?
+                    <select id="tipo_parto" class="style_select" disabled>
+                        <!-- Aqui posso colocar o display none-->
+                        <option value="null">Selecione</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Cesariana">Cesariana</option>
+                    </select><br>
+                </div>
+            </div>
+
+            <div id="div_peso">
+                <!-- Aqui posso colocar o display none-->
+                Qual é o seu peso?
+                <select id="peso" class="style_select" onchange="trava_e_destrava()" disabled>
+                    <option value="null">Selecione</option>
+                    <option value="menos">Menos de 50kg</option>
+                    <option value="mais">Mais de 50kg</option>
+                </select><br>
+            </div>
+
+            <div id="div_alimento">
+                <!-- Aqui posso colocar o display none-->
+                Você se alimentou antes da doação?
+                <select id="alimento" class="style_select" onchange="trava_e_destrava()" disabled>
+                    <option value="null">Selecione</option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select><br>
+            </div>
+
+            <div id="div_seu_tipo">
+                <!-- Aqui posso colocar o display none-->
+                Você sabe seu tipo sanguíneo?
+                <select id="seu_tipo" class="style_select" onchange="trava_e_destrava()" disabled>
+                    <option value="null">Selecione</option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select><br>
+
+                <div id="div_tipo">
+                    <!-- Aqui posso colocar o display none-->
+                    Tipos
+                    <select id="tipo" class="style_select" disabled>
+                        <option value="null">Selecione</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select><br>
+                </div>
+            </div>
+
+            <div id="div_seus_pais">
+                <!-- Aqui posso colocar o display none-->
+                Você sabe o tipo sanguíneo do seus pais?
+                <select id="seus_pais" class="style_select" onchange="trava_e_destrava()" disabled>
+                    <option value="null">Selecione</option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select><br>
+
+                <div id="div_tipo_pais">
+                    <!-- Aqui posso colocar o display none-->
+                    Qual é o tipo sanguíneo do seus pais?
+                    <select id="tipo_pais" class="style_select"disabled>
+                        <option value="null">Selecione</option>
+                        <option value="A e A">Pais A e A</option>
+                        <option value="A e B">Pais A e B</option>
+                        <option value="A e AB">Pais A e AB</option>
+                        <option value="A e O">Pais A e O</option>
+                        <option value="B e B">Pais B e B</option>
+                        <option value="B e AB">Pais B e AB</option>
+                        <option value="B e O">Pais B e O</option>
+                        <option value="AB e AB">Pais AB e AB</option>
+                        <option value="AB e O">Pais AB e O</option>
+                        <option value="O e O">Pais O e O</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <a href="#simulacao"><button onclick="analiseClinica();tipoPais()" class="botao">Análise <br>Sanguínea</button></a><br><br>
+    </div>
+    <!--  -->
+    <div class="fundo_branco" id="fundo_branco">
+        <div class="container_resultado">
+            <h1>Resultado</h1>
+            <div class="menor_desacompanhado" id="menor_desacompanhado">
+                <div class="div_img"><img src="img/Menor.png" class="img_left"></div>
+                <div class="result">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="menor_nome"></span></div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="menor_idade"></span> </div>
+                    <div class="_padrao"><span class="n_pode">Acompanhado de um responável: </span>Não</div>
+                    <div class="n_pode">Você não pode doar sangue!</div>
+                    <div id="analise"></div>
+                </div>
+            </div>
+
+            <div class="gravidez" id="gravidez">
+                <div class="div_img"><img src="img/Gravida.png" class="img_segunda_opcao"></div>
+                <div class="result">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="gravida_nome"></span></div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="gravida_idade"></span> </div>
+                    <div class="invisivel" id="menor_gravida"><span class="info_padrao">Acompanhado de um responável:
+                        </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span>Feminino</div>
+                    <div class="_padrao"><span class="n_pode">Está grávida: </span>Sim</div>
+                    <div class="_padrao"><span class="n_pode">Tipo do parto: </span><span id="gravida_parto"></span>
+                    </div>
+                    <div class="n_pode">Você não pode doar sangue!</div>
+                    <div id="depois_gravidez"></div>
+                </div>
+            </div>
+
+            <div class="menos_50" id="menos_50">
+                <div class="div_img"><img src="img/Menos_50kg.png" class="img_segunda_opcao"></div>
+                <div class="result">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="menos_nome"></span></div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="menos_idade"></span> </div>
+                    <div class="invisivel" id="menor_acompanhado1"><span class="info_padrao">Acompanhado de um
+                            responável: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span><span id="menos_sexo"></span> </div>
+                    <div class="invisivel" id="n_gravida"><span class="info_padrao">Grávida: </span>Não</div>
+                    <div class="_padrao"><span class="n_pode">Peso: </span>Menos de 50kg</div>
+                    <div class="n_pode">Você não pode doar sangue!</div>
+                    <div id="meio_kilo"></div>
+                </div>
+            </div>
+
+            <div class="n_comeu" id="n_comeu">
+                <div class="div_img"><img src="img/n_se_alimentou.png" class="img_segunda_opcao"></div>
+                <div class="result_segunda_opçao">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="alimento_nome"></span></div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="alimento_idade"></span>
+                    </div>
+                    <div class="invisivel" id="menor_acompanhado_alimento"><span class="info_padrao">Acompanhado de um
+                            responável: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span><span id="alimento_sexo"></span> </div>
+                    <div class="invisivel" id="n_gravida_alimento"><span class="info_padrao">Grávida: </span>Não</div>
+                    <div class="_padrao"><span class="info_padrao">Peso: </span>Mais de 50kg</div>
+                    <div class="_padrao"><span class="n_pode">Se alimentou antes da doação: </span>Não</div>
+                    <div class="n_pode">Você não pode doar sangue!</div>
+                    <div id="nao_comeu"></div>
+                </div>
+            </div>
+
+            <div class="doar_e_receber" id="doar_e_receber">
+                <div class="div_img"><img src="img/Tipo_Sanguineo.png" class="img_segunda_opcao"></div>
+                <div class="result_segunda_opçao">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="doar_receber_nome"></span>
+                    </div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="doar_receber_idade"></span>
+                    </div>
+                    <div class="invisivel" id="menor_acompanhado_doar_receber"><span class="info_padrao">Acompanhado de
+                            um responável: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span><span id="doar_receber_sexo"></span>
+                    </div>
+                    <div class="invisivel" id="n_gravida_doar_receber"><span class="info_padrao">Grávida: </span>Não
+                    </div>
+                    <div class="_padrao"><span class="info_padrao">Peso: </span>Mais de 50kg</div>
+                    <div class="_padrao"><span class="info_padrao">Se alimentou antes da doação: </span>Sim</div>
+                    <div class="_padrao"><span class="n_pode">Tipo Sanguíneo: </span><b id="tipo_sanguineo"></b></div>
+                    <div class="n_pode">Você pode doar sangue!</div>
+                    <div id="doar_receber"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="segundo_fundo_branco" id="segundo_fundo_branco">
+        <div class="segundo_container_resultado">
+            <h1>Resultado</h1>
+
+            <div class="pais_tipo_sanguineo" id="pais_tipo_sanguineo">
+                <div class="container_grafico">
+                    <div class="grafico_doughnut">
+                        <canvas id="myChart_doughnut"></canvas>
+                    </div>
+                </div>
+                <div class="result_terceira_opçao">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="grafico_nome"></span></div>
+                    <div class="_padrao"><span class="info_padrao">Idade: </span><span id="grafico_idade"></span> </div>
+                    <div class="invisivel" id="menor_acompanhado_grafico"><span class="info_padrao">Acompanhado de um
+                            responável: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span><span id="grafico_sexo"></span> </div>
+                    <div class="invisivel" id="n_gravida_grafico"><span class="info_padrao">Grávida: </span>Não</div>
+                    <div class="_padrao"><span class="info_padrao">Peso: </span>Mais de 50kg</div>
+                    <div class="_padrao"><span class="info_padrao">Se alimentou antes da doação: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sabe seu tipo sanguíneo? </span>Não</div>
+                    <div class="_padrao"><span class="n_pode">Sabe tipo sanguíneo dos pais? </span>Sim</div>
+                    <div class="_padrao"><span class="n_pode">Tipo Sanguíneo dos pais: </span><b id="tipo_sanguineo_pais"></b>
+                    </div>
+                    <div class="n_pode">Você pode doar sangue!</div>
+                    <div id="pais"></div>
+                </div>
+            </div>
+
+            <div class="nao_sabe" id="nao_sabe">
+                <div class="div_img"><img src="img/n_sabe.png" class="img_left"></div>
+                <div class="result_segunda_opçao">
+                    <div class="_padrao"><span class="info_padrao">Nome: </span> <span id="nao_sabe_nome"></span>
+                        <span class="info_padrao">Idade: </span><span id="nao_sabe_idade"></span>
+                    </div>
+                    <div class="invisivel" id="menor_acompanhado_nao_sabe"><span class="info_padrao">Acompanhado de
+                            um responável: </span>Sim</div>
+                    <div class="_padrao"><span class="info_padrao">Sexo: </span><span id="nao_sabe_sexo"></span>
+                    </div>
+                    <div class="invisivel" id="n_gravida_nao_sabe"><span class="info_padrao">Grávida: </span>Não
+                    </div>
+                    <div class="_padrao"><span class="info_padrao">Peso: </span>Mais de 50kg</div>
+                    <div class="_padrao"><span class="info_padrao">Se alimentou antes da doação: </span>Sim</div>
+                    <div class="_padrao"><span class="n_pode">Sabe seu tipo sanguíneo? </span>Não</div>
+                    <div class="_padrao"><span class="n_pode">Sabe tipo sanguíneo dos pais? </span>Não</div>
+                    <div class="n_pode">Você pode doar sangue!</div>
+                    <div id="n_sabe"></div><br>
+                    <b>Você está fazendo uma boa ação!</b>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="simulacao">AELRTA: Isso é uma simulução, consulte seu médico!</div>
+    <div class="footer">
+        2021 | Desenvolvido por <a href="https://www.linkedin.com/in/vitoriasilvaeleuteriopinto/"
+            target="_blank">Vitória Eleutério</a>
+    </div>
+</body>
+
+</html>
+<script>
+    // Tipos sanguíneos
+    function tipoPais() {
+
+        if (tipo_pais.value == "A e A") {
+            info_Data = [93.75, 0, 0, 6.25];
+        } if (tipo_pais.value == "A e B") {
+            info_Data = [18.75, 18.75, 56.25, 6.25]
+        } else if (tipo_pais.value == "A e AB") {
+            info_Data = [50, 12.5, 37.5, 0]
+        } else if (tipo_pais.value == "A e O") {
+            info_Data = [75, 0, 0, 25]
+        } else if (tipo_pais.value == "B e B") {
+            info_Data = [0, 93.75, 0, 6.25]
+        } else if (tipo_pais.value == "B e AB") {
+            info_Data = [12.5, 50, 37.5, 0]
+        } else if (tipo_pais.value == "B e O") {
+            info_Data = [0, 75, 0, 25]
+        } else if (tipo_pais.value == "AB e AB") {
+            info_Data = [25, 25, 50, 0]
+        } else if (tipo_pais.value == "AB e O") {
+            info_Data = [50, 50, 0, 0]
+        } else if (tipo_pais.value == "O e O") {
+            info_Data = [0, 0, 0, 100]
+        }
+
+        // Criando a variável grafico_doughnut e informando onde será a visualização do gráfico(myChart_doughnut).
+        var grafico_doughnut = document.getElementById('myChart_doughnut')
+
+        var grafico = new Chart(grafico_doughnut, {
+
+
+            type: 'doughnut',
+            // DADOS: Inserindo os dados no gráfico
+            data: {
+                labels: ["Tipo A", "Tipo B", "Tipo AB", "Tipo O"], // LABELS: Conjunto de dados - LEGENDA DOS DADOS.
+                datasets: [{
+                    // DATA: Valores dos dados, aqui você escolhe quantas partes terá e o tamanho.
+                    data: info_Data,
+                    backgroundColor: ['#3c6382', '#f7f1e3', '#eb4d4b', '#60a3bc'], // Aqui você decidi qual cor colocar em cada parte, mas um detalhe
+                    display: true
+                    // tem que colocar na proporção de valores inseridos, ou seja, cada valor é uma cor.
+                }]
+
+            },
+            options: {
+                plugins: {
+                    title: { // TÍTULO : Dados do título.
+                        display: true, // Deixando a título visível.
+                        text: "Possibilidade Sanguínea por Porcentagem(%)", // Deixando o título visível.
+                    },
+                    legend: { // LEGENDA : Dados da leganda.
+                        position: 'bottom', // Leganda possionada embaixo.
+                        display: true, // Deixando a legenda visível.
+                    }
+                }
+            }
+        });
+    }
+</script>

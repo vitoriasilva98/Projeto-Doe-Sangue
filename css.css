@@ -1,0 +1,312 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #3C6382;
+    margin: 0;
+}
+
+.container_logo{
+    padding-top: 5%;
+    width: 31%;
+    margin: auto;
+    text-align: center;
+}
+
+.logo {
+    width: 100%;
+}
+
+.intro{
+    padding-top: 4%;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.container_corpo{
+    padding-top: 5%;
+    width: 40%;
+    margin: auto;
+    font-weight: 600;
+    color: #F7F1E3;
+    text-align: center;
+}
+
+.inputs{
+    width: 50%;
+    height: 40px;
+    background-color: #0A3D62;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    color: #F7F1E3;
+    margin-left: 1%;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.select_responsavel{
+    text-align:right;
+}
+
+.respo{
+    width: 55%;
+    margin: auto;
+}
+
+.style_select_respo{
+    width: 100px;
+    height: 40px;
+    background-color: #0A3D62;
+    border-radius: 15px;
+    color: #F7F1E3;
+    border: none;
+    padding-left: 5%;
+    margin-left: 1%;
+    margin-bottom: 4%;
+}
+
+.alinhado{
+    text-align: right;
+    width: 80%;
+}
+
+.style_select{
+    width: 130px;
+    height: 40px;
+    background-color: #0A3D62;
+    border-radius: 15px;
+    color: #F7F1E3;
+    border: none;
+    padding-left: 2%;
+    margin-left: 1%;
+    margin-bottom: 4%;
+}
+
+.botao{
+    width: 35%;
+    height: 50px;
+    background: #EB4D4B;
+    color: #F7F1E3;
+    border-radius: 20px;
+    font-weight: 600;
+    border: none;
+    margin-top: 7%;
+}
+
+.footer{
+    color:#F7F1E3;
+    text-align: center;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+a:hover{
+    font-weight: 600;
+}
+
+/* -----------------------------------Resultado----------------------------------------- */
+
+/* ---------------------------------Primeira Opção = Menor desacompanhado-------------------------------- */
+
+.fundo_branco{
+    background-color: white;
+    width: 100%;
+    height: 600px;
+    display: none;
+    overflow: auto;
+}
+
+.container_resultado{
+    width: 70%;
+    margin: auto;
+    font-size: 17px;
+}
+
+h1{
+    padding-top: 3%;
+    text-align: center;
+    color: #0A3D62;
+    padding-bottom: 2%;
+}
+
+.menor_desacompanhado{
+
+    display: none;
+}
+
+.div_img{
+    width: 45%;
+    float: left;
+}
+
+.img_left{
+    width: 100%;
+    height: 100%;
+}
+
+.result{
+    width: 45%;
+    float: right;
+    text-align: left;
+    padding-top: 6.5%;
+}
+
+ .info_padrao{
+    font-weight: 700;
+    /* display: block; */
+    margin-bottom: 10px;
+
+}
+
+._padrao{
+    margin-bottom: 3%;
+}
+
+.n_pode{
+    color: #EB4D4B;
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+
+.na_linha{
+    display:inline;
+}
+
+
+/* ---------------------------------Segunda Opção = Moça grávida-------------------------------- */
+
+.gravidez{
+    display: none;
+}
+
+.img_segunda_opcao{
+    width: 85%;
+    margin-left: 10%;
+}
+
+.div_img{
+    width: 45%;
+    float: left;
+}
+
+
+.invisivel{
+    display: none;
+    margin-bottom: 3%;
+}
+
+/* ---------------------------------Terceira Opção = Menos de 50kg-------------------------------- */
+
+.menos_50{
+    display: none;
+}
+
+/* ---------------------------------Quarta Opção = Não se alimentou-------------------------------- */
+
+.n_comeu{
+    display: none;
+}
+
+#menor_acompanhado_alimento{
+    display: none;
+}
+
+#n_gravida_alimento{
+    display: none;
+}
+
+.result_segunda_opçao{
+    width: 45%;
+    float: right;
+    text-align: left;
+    padding-top: 2%;
+}
+
+/* ---------------------------------Quinta Opção = Sabe o tipo sanguíneo-------------------------------- */
+
+.doar_e_receber{
+    display: none;
+}
+
+#menor_acompanhado_doar_receber{
+    display: none;
+}
+
+#n_gravida_doar_receber{
+    display: none;
+}
+
+/* ---------------------------------Sexta Opção = Sabe o tipo sanguíneo dos pais-------------------------------- */
+.segundo_fundo_branco{
+    background-color: white;
+    width: 100%;
+    height: 690px;
+    display: none;
+    overflow: auto;
+}
+
+.segundo_container_resultado{
+    width: 70%;
+    margin: auto;
+    font-size: 17px;
+}
+.pais_tipo_sanguineo{
+    display: none;
+}
+
+.container_grafico{
+    width: 45%;
+    float: left;
+}
+
+.grafico_doughnut {
+    width: 100%;
+    margin: 0;
+}
+
+.result_terceira_opçao{
+    width: 45%;
+    float: right;
+    text-align: left;
+}
+
+#menor_acompanhado_grafico{
+    display: none;
+}
+
+#n_gravida_grafico{
+    display: none;
+}
+
+/* ---------------------------------Sétima Opção = Não sabe seu tipo sanguíneo ou dos pais-------------------------------- */
+
+.nao_sabe{
+    display: none;
+}
+
+#menor_acompanhado_nao_sabe{
+    display: none;
+}
+
+#n_gravida_nao_sabe{
+    display: none;
+}
+
+/* --------------------------------- Alerta-------------------------------- */
+
+#simulacao{
+    background-color: #eb4d4b;
+    color:#F7F1E3;
+    width: 100%;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: none;
+}
+
