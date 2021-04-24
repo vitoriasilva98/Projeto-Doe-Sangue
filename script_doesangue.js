@@ -1,3 +1,8 @@
+// Alert de Boas Vindas
+alert(`Olá! Seja bem-vindo ao Projeto Doe Sangue | Salve Vidas é um questionário onde o objetivo é saber se você pode doar sangue, 
+para quem e de qual tipo sanguíneo você pode receber. <br>Fiz esse programa com tudo que aprendi na faculdade 
+até agora e com algumas pesquisas. <br>Linguagens utilizadas: HTML, CSS, JavaScript e Chart.JS. <br>
+Está versão ainda não está responsiva, estou começando a aprender. <br>Quem puder me dar um feedback eu agradeço!`)
 //Destrava os campos.
 function trava_e_destrava() {
     var idade = Number(valor_Idade.value);
