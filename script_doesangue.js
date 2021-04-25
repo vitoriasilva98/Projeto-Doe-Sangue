@@ -16,16 +16,15 @@ function trava_e_destrava() {
         valor_Idade.disabled = false;
     }
 
-    if (idade == 16) {
+    if (idade == 16 || idade == 17) {
         responsavel_select.disabled = false;
-    }
-    if (idade == 17) {
-        responsavel_select.disabled = false;
+    } else if (idade != 16 || idade != 17) {
+        responsavel_select.disabled = true;
     }
 
     if (idade >= 18) {
         sexo.disabled = false;
-    }
+    } 
 
     if (responsavel_select.value == "Sim") {
         sexo.disabled = false;
@@ -33,34 +32,50 @@ function trava_e_destrava() {
 
     if (sexo.value == "Feminino") {
         gravida.disabled = false;
+    } else if (sexo.value != "Feminino") {
+        gravida.disabled = true;
     }
 
     if (gravida.value == "S") {
         tipo_parto.disabled = false;
+    } else if (gravida.value != "S") {
+        tipo_parto.disabled = true;
     }
 
     if (sexo.value == "Masculino" || gravida.value == "N") {
         peso.disabled = false;
+    } else if (sexo.value != "Masculino" || gravida.value != "N") {
+        peso.disabled = true;
     }
 
     if (peso.value == "mais") {
         alimento.disabled = false;
+    } else if (peso.value != "mais") {
+        alimento.disabled = true;
     }
 
     if (alimento.value == "S") {
         seu_tipo.disabled = false;
+    } else if (alimento.value != "S") {
+        seu_tipo.disabled = true;
     }
 
     if (seu_tipo.value == "S") {
         tipo.disabled = false;
+    } else if (seu_tipo.value != "S") {
+        tipo.disabled = true;
     }
 
     if (seu_tipo.value == "N") {
         seus_pais.disabled = false;
+    } else if (seu_tipo.value != "N") {
+        seus_pais.disabled = true;
     }
 
     if (seus_pais.value == "S") {
         tipo_pais.disabled = false;
+    } else if (seus_pais.value != "S") {
+        tipo_pais.disabled = true;
     }
 }
 
