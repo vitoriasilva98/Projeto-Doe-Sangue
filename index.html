@@ -9,157 +9,151 @@
     <!-- link para o código ChartsJS - Versão 3.1.0 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="script_doesangue.js"> </script>
-    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" src="conexao_bd.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/css.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
-    <!-- Imagem para compartilhamento da url -->
-    <meta property="og:image"
-        content="https://raw.githubusercontent.com/vitoriasilva98/Projeto-Doe-Sangue/main/img/capa.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="662">
-    <meta property="og:image:height" content="386">
-    <meta property="og:url" content="https://vitoriasilva98.github.io/Projeto-Doe-Sangue/">
-    <meta property="og:description"
-        content="O Projeto Doe Sangue | Salve Vidas é um questionário onde o objetivo é saber se você pode doar sangue, para quem e de qual tipo sanguíneo você pode receber.">
     <title>Doe Sague - Salve Vidas</title>
 </head>
 
 <body>
     <div class="container_logo">
-        <img src="img/Logo.png" class="logo">
+        <a href="index.html"><img src="img/Logo.png" class="logo"></a>
         <p class="intro">Você pode doar sangue? Para quem? E qual tipo sanguíneo você pode receber?</p>
     </div>
-
-    <div class="container_corpo">
-        <div class="input_corpo">
-            <!--O objetivo do programa é saber se você pode doar sangue e para qual tipo você pode doar e receber-->
-            <!--Campo nome-->
-            Qual é o seu nome? <input id="valor_Nome" placeholder="Qual é o seu nome?" class="inputs"
-                onchange="trava_e_destrava()" autofocus><br><br>
-            <!--Campo idade é uma condição-->
-            Qual é a sua idade? <input id="valor_Idade" placeholder="Qual é sua idade?" class="inputs"
-                onchange="trava_e_destrava()" disabled><br><br>
-        </div>
-
-        <div class="select_responsavel">
-            <div class="respo">No caso de menor de idade está acompanhado de um responsável?
-                <label for="responsavel">Escolha uma opção:</label>
-
-                <select id="responsavel_select" class="style_select_respo" onchange="trava_e_destrava()" disabled>
-                    <option value="0" selected>***</option>
-                    <option value="Sim">Sim</option>
-                    <option value="N">Não</option>
-                </select>
+    <form id="form_doador" method="POST" onsubmit="return cadastrar()">
+        <div class="container_corpo">
+            <div class="input_corpo">
+                <!--O objetivo do programa é saber se você pode doar sangue e para qual tipo você pode doar e receber-->
+                <!--Campo nome-->
+                Qual é o seu nome? <input name="nome_doador" id="valor_Nome" placeholder="Qual é o seu nome?" type="text"
+                    class="inputs" onkeyup="trava_e_destrava()" autofocus><br><br>
+                <!--Campo idade é uma condição-->
+                Qual é a sua idade? <input name="idade_doador" id="valor_Idade" placeholder="Qual é sua idade?"
+                    class="inputs" type="number"  onkeyup="trava_e_destrava()" disabled><br><br>
             </div>
-        </div>
 
-        <div class="alinhado">
-            <div id="div_sexo">
-                Qual é o seu sexo?
-                <select id="sexo" class="style_select" onchange="trava_e_destrava()" disabled>
-                    <option value="null">Selecione</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
+            <div class="select_responsavel">
+                <div class="respo">No caso de menor de idade está acompanhado de um responsável?
+                    <label for="responsavel">Escolha uma opção:</label>
 
-                <div id="div_gravida">
+                    <select id="responsavel_select" class="style_select_respo" onchange="trava_e_destrava()" disabled>
+                        <option value="0" selected>***</option>
+                        <option value="Sim">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="alinhado">
+                <div id="div_sexo">
+                    Qual é o seu sexo?
+                    <select name="sexo_doador" id="sexo" class="style_select" onchange="trava_e_destrava()" disabled>
+                        <option value="null">Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
+
+                    <div id="div_gravida">
+                        <!-- Aqui posso colocar o display none-->
+                        Você está grávida?
+                        <select id="gravida" class="style_select" onchange="trava_e_destrava()" disabled>
+                            <option value="null">Selecione</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select><br>
+
+                        Qual o tipo do parto?
+                        <select id="tipo_parto" class="style_select" disabled>
+                            <!-- Aqui posso colocar o display none-->
+                            <option value="null">Selecione</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Cesariana">Cesariana</option>
+                        </select><br>
+                    </div>
+                </div>
+
+                <div id="div_peso">
                     <!-- Aqui posso colocar o display none-->
-                    Você está grávida?
-                    <select id="gravida" class="style_select" onchange="trava_e_destrava()" disabled>
+                    Qual é o seu peso?
+                    <select id="peso" class="style_select" onchange="trava_e_destrava()" disabled>
+                        <option value="null">Selecione</option>
+                        <option value="menos">Menos de 50kg</option>
+                        <option value="mais">Mais de 50kg</option>
+                    </select><br>
+                </div>
+
+                <div id="div_alimento">
+                    <!-- Aqui posso colocar o display none-->
+                    Você se alimentou antes da doação?
+                    <select id="alimento" class="style_select" onchange="trava_e_destrava()" disabled>
+                        <option value="null">Selecione</option>
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select><br>
+                </div>
+
+                <div id="div_seu_tipo">
+                    <!-- Aqui posso colocar o display none-->
+                    Você sabe seu tipo sanguíneo?
+                    <select id="seu_tipo" class="style_select" onchange="trava_e_destrava()" disabled>
                         <option value="null">Selecione</option>
                         <option value="S">Sim</option>
                         <option value="N">Não</option>
                     </select><br>
 
-                    Qual o tipo do parto?
-                    <select id="tipo_parto" class="style_select" disabled>
+                    <div id="div_tipo">
                         <!-- Aqui posso colocar o display none-->
-                        <option value="null">Selecione</option>
-                        <option value="Normal">Normal</option>
-                        <option value="Cesariana">Cesariana</option>
-                    </select><br>
+                        Tipos
+                        <select name="fkTipo" id="tipo" class="style_select" disabled>
+                            <option value="vazio">Selecione</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select><br>
+                    </div>
                 </div>
-            </div>
 
-            <div id="div_peso">
-                <!-- Aqui posso colocar o display none-->
-                Qual é o seu peso?
-                <select id="peso" class="style_select" onchange="trava_e_destrava()" disabled>
-                    <option value="null">Selecione</option>
-                    <option value="menos">Menos de 50kg</option>
-                    <option value="mais">Mais de 50kg</option>
-                </select><br>
-            </div>
-
-            <div id="div_alimento">
-                <!-- Aqui posso colocar o display none-->
-                Você se alimentou antes da doação?
-                <select id="alimento" class="style_select" onchange="trava_e_destrava()" disabled>
-                    <option value="null">Selecione</option>
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
-                </select><br>
-            </div>
-
-            <div id="div_seu_tipo">
-                <!-- Aqui posso colocar o display none-->
-                Você sabe seu tipo sanguíneo?
-                <select id="seu_tipo" class="style_select" onchange="trava_e_destrava()" disabled>
-                    <option value="null">Selecione</option>
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
-                </select><br>
-
-                <div id="div_tipo">
+                <div id="div_seus_pais">
                     <!-- Aqui posso colocar o display none-->
-                    Tipos
-                    <select id="tipo" class="style_select" disabled>
+                    Você sabe o tipo sanguíneo do seus pais?
+                    <select id="seus_pais" class="style_select" onchange="trava_e_destrava()" disabled>
                         <option value="null">Selecione</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
                     </select><br>
+
+                    <div id="div_tipo_pais">
+                        <!-- Aqui posso colocar o display none-->
+                        Qual é o tipo sanguíneo do seus pais?
+                        <select id="tipo_pais" class="style_select" disabled>
+                            <option value="null">Selecione</option>
+                            <option value="A e A">Pais A e A</option>
+                            <option value="A e B">Pais A e B</option>
+                            <option value="A e AB">Pais A e AB</option>
+                            <option value="A e O">Pais A e O</option>
+                            <option value="B e B">Pais B e B</option>
+                            <option value="B e AB">Pais B e AB</option>
+                            <option value="B e O">Pais B e O</option>
+                            <option value="AB e AB">Pais AB e AB</option>
+                            <option value="AB e O">Pais AB e O</option>
+                            <option value="O e O">Pais O e O</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-            <div id="div_seus_pais">
-                <!-- Aqui posso colocar o display none-->
-                Você sabe o tipo sanguíneo do seus pais?
-                <select id="seus_pais" class="style_select" onchange="trava_e_destrava()" disabled>
-                    <option value="null">Selecione</option>
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
-                </select><br>
-
-                <div id="div_tipo_pais">
-                    <!-- Aqui posso colocar o display none-->
-                    Qual é o tipo sanguíneo do seus pais?
-                    <select id="tipo_pais" class="style_select" disabled>
-                        <option value="null">Selecione</option>
-                        <option value="A e A">Pais A e A</option>
-                        <option value="A e B">Pais A e B</option>
-                        <option value="A e AB">Pais A e AB</option>
-                        <option value="A e O">Pais A e O</option>
-                        <option value="B e B">Pais B e B</option>
-                        <option value="B e AB">Pais B e AB</option>
-                        <option value="B e O">Pais B e O</option>
-                        <option value="AB e AB">Pais AB e AB</option>
-                        <option value="AB e O">Pais AB e O</option>
-                        <option value="O e O">Pais O e O</option>
-                    </select>
-                </div>
-            </div>
+            <button type="submit" onclick="analiseClinica();tipoPais()" id="botao_analise" class="botao">Análise
+                <br>Sanguínea
+            </button><br><br>
         </div>
-
-        <a href="#simulacao"><button onclick="analiseClinica();tipoPais()" class="botao">Análise
-                <br>Sanguínea</button></a><br><br>
-    </div>
-    <!--  -->
+    </form>
+    <!-- Início dos resultados -->
     <div class="fundo_branco" id="fundo_branco">
         <div class="container_resultado">
             <h1>Resultado</h1>
@@ -297,7 +291,7 @@
         </div>
     </div>
 
-    <div id="simulacao">AELRTA: Isso é uma simulução, consulte seu médico!</div>
+    <div id="simulacao">AELRTA: Isso é uma simulação, consulte seu médico!</div>
     <div class="footer">
         2021 | Desenvolvido por <a href="https://www.linkedin.com/in/vitoriasilvaeleuteriopinto/"
             target="_blank">Vitória Eleutério</a>

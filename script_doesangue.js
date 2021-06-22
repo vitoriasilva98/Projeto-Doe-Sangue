@@ -1,79 +1,95 @@
-// Alert de Boas Vindas
-alert(`Olá! Seja bem-vindo ao Projeto Doe Sangue | Salve Vidas é um questionário onde o objetivo é saber se você pode doar sangue, 
-para quem e de qual tipo sanguíneo você pode receber. 
-Fiz esse programa com tudo que aprendi na faculdade 
-até agora e com algumas pesquisas. 
-Linguagens utilizadas: HTML, CSS, JavaScript e Chart.JS. 
-Está versão ainda não está responsiva, estou começando a aprender. 
-Quem puder me dar um feedback eu agradeço!`)
+
 //Destrava os campos.
 function trava_e_destrava() {
     var idade = Number(valor_Idade.value);
+    var nome = valor_Nome.value;
+    var nome_inicio = nome.trimStart();
+    var nome_fim = nome_inicio.trimEnd();
 
-    if (valor_Nome.value == "") {
-        alert("Informe seu nome")
-    } else if (valor_Nome.value.length >= 3) {
+    
+    if (nome_fim == "" || nome_fim.length < 3) {
+        // alert("Informe seu nome")
+        valor_Nome.style.color = "#EB4D4B";
+
+    } else if (nome_fim.length >= 3) {
+        valor_Nome.style.color = "#F7F1E3";
         valor_Idade.disabled = false;
     }
 
     if (idade == 16 || idade == 17) {
         responsavel_select.disabled = false;
+        responsavel_select.focus();
+
     } else if (idade != 16 || idade != 17) {
         responsavel_select.disabled = true;
     }
 
-    if (idade >= 18) {
+    if (idade >= 18 && idade <= 69) {
+        valor_Idade.style.color = "#F7F1E3";
         sexo.disabled = false;
-    } 
+        sexo.focus();
+    } else {
+        valor_Idade.style.color = "#EB4D4B";
+        sexo.disabled = true;
+    }
 
     if (responsavel_select.value == "Sim") {
         sexo.disabled = false;
+        sexo.focus()
     }
 
     if (sexo.value == "Feminino") {
         gravida.disabled = false;
+        gravida.focus()
     } else if (sexo.value != "Feminino") {
         gravida.disabled = true;
     }
 
     if (gravida.value == "S") {
         tipo_parto.disabled = false;
+        tipo_parto.focus()
     } else if (gravida.value != "S") {
         tipo_parto.disabled = true;
     }
 
     if (sexo.value == "Masculino" || gravida.value == "N") {
         peso.disabled = false;
+        peso.focus()
     } else if (sexo.value != "Masculino" || gravida.value != "N") {
         peso.disabled = true;
     }
 
     if (peso.value == "mais") {
         alimento.disabled = false;
+        alimento.focus()
     } else if (peso.value != "mais") {
         alimento.disabled = true;
     }
 
     if (alimento.value == "S") {
         seu_tipo.disabled = false;
+        seu_tipo.focus()
     } else if (alimento.value != "S") {
         seu_tipo.disabled = true;
     }
 
     if (seu_tipo.value == "S") {
         tipo.disabled = false;
+        tipo.focus()
     } else if (seu_tipo.value != "S") {
         tipo.disabled = true;
     }
 
     if (seu_tipo.value == "N") {
         seus_pais.disabled = false;
+        seus_pais.focus()
     } else if (seu_tipo.value != "N") {
         seus_pais.disabled = true;
     }
 
     if (seus_pais.value == "S") {
         tipo_pais.disabled = false;
+        tipo_pais.focus()
     } else if (seus_pais.value != "S") {
         tipo_pais.disabled = true;
     }
@@ -84,6 +100,8 @@ function analiseClinica() {
     //Variáveis
     var idade = Number(valor_Idade.value);
     var nome = String(valor_Nome.value);
+
+    simulacao.focus()
 
     //Condição da idade, se o usuário tiver entre 16 a 17 anos precisa de um responsável para continuar o processo, caso tiver mais de 18 ou igual pode continuar.
     if (idade == 16 || 17) {
@@ -97,7 +115,7 @@ function analiseClinica() {
         }
     }
 
-    if (idade >= 18 || (idade == 16 || 17)) {
+    if (idade >= 18 || (idade == 16 || 17) && idade <= 69) {
         // Qual é o gênero da pessoa?
         if (sexo.value == "Feminino") {
             // Caso a pessoa esteja gravida
@@ -178,10 +196,10 @@ function analiseClinica() {
                         doar_receber.innerHTML = `Você pode doar para o tipo <b>AB+</b> e pode receber dos tipos <b>(A+, B+, O+, AB+, A-, B-, O- e AB- (todos))</b>.`;
                     } else if (tipo.value == "AB-") {
                         doar_receber.innerHTML = `Você pode doar para os tipos <b>(AB+ e AB-)</b> e pode receber dos tipos <b>(A-, B-, O- e AB-)</b>.`;
-                    } else if (tipo.value == "O+") {
-                        doar_receber.innerHTML = `Você pode doar para os tipos <b>(A+, B+, O+ e AB+)</b> e pode receber dos tipos <b>(O+ e O-)</b>.`;
                     } else if (tipo.value == "O-") {
                         doar_receber.innerHTML = `Você pode doar para os tipos <b>(A+, B+, O+, AB+, A-, B-, O- e AB- (todos))</b> e pode receber dos tipos <b>(O-)</b>.`;
+                    } else if (tipo.value == "O+") {
+                        doar_receber.innerHTML = `Você pode doar para os tipos <b>(A+, B+, O+ e AB+)</b> e pode receber dos tipos <b>(O- e O+)</b>.`;
                     }
 
                     tipo_sanguineo.innerHTML = `${tipo.value}`;
@@ -235,7 +253,7 @@ function analiseClinica() {
                         tipo_sanguineo_pais.innerHTML = `${tipo_pais.value}`;
                         // Caso o usuário não saiba o tipo sangíneo dos seus pais.
                     } else {
-                        n_sabe.innerHTML = `Não tem problema não saber seu tipo sanguíneo, a coleta será analisado para 
+                        n_sabe.innerHTML = `Não tem problema não saber seu tipo sanguíneo, a coleta será analisada para 
                         saber qual é o seu tipo sanguíneo. `;
                         segundo_fundo_branco.style.display = 'block';
                         nao_sabe.style.display = 'block';
@@ -251,5 +269,6 @@ function analiseClinica() {
         }
     }
     simulacao.style.display = 'block';
+    simulacao.style.behavior = 'smooth'
 }
 
