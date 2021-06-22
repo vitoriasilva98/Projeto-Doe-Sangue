@@ -9,8 +9,7 @@
     <!-- link para o código ChartsJS - Versão 3.1.0 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="script_doesangue.js"> </script>
-    <script type="text/javascript" src="conexao_bd.js"> </script>
-    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
     <title>Doe Sague - Salve Vidas</title>
@@ -21,7 +20,7 @@
         <a href="index.html"><img src="img/Logo.png" class="logo"></a>
         <p class="intro">Você pode doar sangue? Para quem? E qual tipo sanguíneo você pode receber?</p>
     </div>
-    <form id="form_doador" method="POST" onsubmit="return cadastrar()">
+    
         <div class="container_corpo">
             <div class="input_corpo">
                 <!--O objetivo do programa é saber se você pode doar sangue e para qual tipo você pode doar e receber-->
@@ -148,11 +147,10 @@
                 </div>
             </div>
 
-            <button type="submit" onclick="analiseClinica();tipoPais()" id="botao_analise" class="botao">Análise
+            <button onclick="analiseClinica();tipoPais()" id="botao_analise" class="botao">Análise
                 <br>Sanguínea
             </button><br><br>
         </div>
-    </form>
     <!-- Início dos resultados -->
     <div class="fundo_branco" id="fundo_branco">
         <div class="container_resultado">
